@@ -1,0 +1,18 @@
+footer {
+	margin-top: 20px;
+	padding: 20px;
+	background: #e0e0e0;
+	border-top: 1px solid #266AB3;
+}
+
+footer #html5hint{
+	background: url('/img/html5-badge-h-css3-semantics.png') no-repeat;
+	padding-top: 5px;
+	padding-left: 80px;
+	margin: 10px auto;
+	height: 32px;
+	line-height: 11px;
+	font-size: 10px;
+	width: 120px;
+	
+}

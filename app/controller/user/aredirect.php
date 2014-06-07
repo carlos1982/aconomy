@@ -1,0 +1,5 @@
+<?php
+/**
+ * Hier passiert nichts.
+ */
+?>

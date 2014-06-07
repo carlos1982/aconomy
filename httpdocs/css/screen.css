@@ -1,0 +1,118 @@
+@CHARSET "UTF-8";
+
+
+html {
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica, Verdana, Arial, Sans Serif;
+}
+
+body {
+	margin: 0 auto;
+	position: relative;
+}
+
+header{
+	
+	background: url('/img/aconomy.png') no-repeat;
+	background-size: auto 60%;
+	height: 65px;
+	margin: 0;
+	position: relative;
+}
+
+header h1 {
+	float: left;
+}
+
+header h2{
+	margin: 0;
+	padding: 0 ;
+	display: block;
+	overflow: hidden;
+	margin-top: 10px;
+	padding: 10px 15px;
+	border-left: 2px solid #eee;
+	color: #00809f;
+	font-size: 1.5em;
+	float: left;
+}
+
+header #project_url{
+	display: none;
+}
+
+header #module_path{
+	margin-left: 250px;
+	color: #9b59b6;
+}
+
+#debuginformationen {
+	background: #000;
+	color: lime;
+	font-family: courier, monospace;
+	font-size: 0.9em;
+}
+
+#debuginformationen th,
+#debuginformationen td {
+	color: lime;
+	border: 1px dashed lime;
+	border-collapse: collapse;
+	padding: 0.2em 0.5em;
+}
+
+#debuginformationen table{
+	border: 1px dashed lime;
+	border-collapse: collapse;
+}
+
+
+
+
+/**
+*	################################################
+*	Fehlerausgaben und Erfolgsmeldungen
+*/
+
+.errormessage,.successmessage,p.success {
+	color: #fff;
+	margin: 15px 0 20px 0;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+	border-radius: 2px;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.errormessage {
+	background-color: #aa0000;
+	background-image: -moz-linear-gradient(center top, #AA0000 0%, #660000 100%);
+}
+
+.successmessage,p.success {
+	background-color: #80B020;
+	background-image: -moz-linear-gradient(center top, #94C84A 0%, #80B020 100%);
+}
+
+.errormessage ul,.successmessage ul,p.success{
+	margin: 0;
+	padding: 8px 10px;
+	list-style-type: none;
+}
+
+
+/**
+*	################################################
+*	User-Abgaben
+*/
+
+.post_content {
+}
+	
+/**
+*	## Startseite Studis ###########################
+*/
+.course_container {
+	
+	padding-bottom: 20px;
+	border-bottom: 2px solid #ccc;
+}

@@ -1,0 +1,25 @@
+#StudentsLoginFormContainer {
+	padding-left: 30px;
+	padding-bottom: 20px;
+	background: url('/img/fieldset_bg.png') bottom repeat-x #fff;
+	
+	border: 1px solid #ccc;
+	
+}
+
+#RegisterHintsContainer {
+	width: 400px;
+	
+	padding: 0px 0 ; 
+}
+
+
+#RegisterHintsContainer .createbutton{
+	display: inline-block;
+	margin-top: 15px;
+}
+
+#html5hintlogin {
+	border-top: 1px solid #ccc;
+	margin-top:40px;
+}

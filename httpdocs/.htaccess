@@ -1,0 +1,7 @@
+#php_value upload_max_filesize 18388608
+#php_value memory_limit 256M
+#php_value max_input_time 60
+
+RewriteEngine On
+RewriteBase /
+RewriteRule !((css|js|jpg|gif|png|ico|zip|swf)$) index.php

@@ -1,0 +1,30 @@
+table.editlist {
+	font-size: 0.9em;
+	border-collapse: separate;
+	border: 1px solid #ccc;
+	border-spacing: 1px;
+	background: #ccc;
+}
+
+table.editlist tbody {
+	background: #ccc;
+	
+}
+
+table.editlist thead {
+	background: #256ab3;
+}
+
+table.editlist thead th {
+	background: #256ab3;
+	color: #fff;
+	text-align: left;
+	padding: 0.3em;
+	font-size: 1.1em;
+}
+
+table.editlist tbody td{
+	background: #fff;
+	
+	padding: 0.3em;
+}

@@ -1,0 +1,31 @@
+nav {
+	clear: both;
+	display: block;
+	background: repeat-x #00809f;
+	color: #fff;
+	height:35px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+nav ul  {
+	list-type: none;
+	margin: 0px;
+	padding: 0 10px;
+}
+
+nav ul li {
+	display: inline-block;
+}
+
+nav a {
+	display: inline-block;
+	padding: 8px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+nav a:HOVER {
+	background: #5fa841;
+	text-decoration: none;
+}

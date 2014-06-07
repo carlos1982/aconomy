@@ -1,0 +1,11 @@
+sidebar {
+	float: right;
+	width: 240px; 
+}
+
+sidebar .editlink,
+sidebar .createlink{
+	width: 100%;
+	display: block;
+	margin-bottom: 0;
+}

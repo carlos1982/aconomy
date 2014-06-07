@@ -1,0 +1,6 @@
+/.project
+/resources/
+*~
+config.php
+/app/helper/hmysql.php
+._.*

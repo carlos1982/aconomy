@@ -1,0 +1,19 @@
+.response {
+	display: none;
+}
+
+.progress {
+	display: none;
+}
+
+.progress span{
+	display: block;
+	padding: 4px 4px;
+	background-image: url('/img/progress.gif');
+	background-color: #5FB841;
+	width: 0%;
+	color: #fff;
+	font-size: 1.1em;
+	overflow: hidden;
+	height: 1.1em;
+}
