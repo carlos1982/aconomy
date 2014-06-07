@@ -20,6 +20,10 @@ switch (hRouter::getAction()) {
 							hRouter::NoPermission();
 						}
 						break;
+    case 'inventory':   if(!hSession::IsLoggedIn()) {
+                            hRouter::NoPermission();
+                        }
+                        break;
 	case 'login':		if((hSession::IsLoggedIn())) {
 							hRouter::NoPermission();
 						}

@@ -5,6 +5,7 @@ if (hSession::IsLoggedIn()) {
 	hDebug::Add(__('Rolle').': '.__('Studierender'));
 	$menu_items['Startseite'] = _Link('user','index');
 	$menu_items['Locations'] = _Link('location','list');
+    $menu_items['Inventory'] = _Link('user','inventory');
 	$menu_items['Logout'] = _Link('user','logout');
 }
 
