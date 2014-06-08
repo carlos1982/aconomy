@@ -50,7 +50,7 @@ class hRouter {
                     //TODO: better header!
                     //find kiraa's hack for that!!1!
                     //echo BASEDIR . $ltrimmed_request_url;
-                    echo file_get_contents(BASEDIR . $request_url);
+                    echo file_get_contents(BASEDIR . $ltrimmed_request_url);
                     die();
                 }
             }
