@@ -41,19 +41,20 @@ class hRouter {
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
 
-            $base_url = explode('/', BASEURL);
+            // cut the subdir from request!
+            $base_url_parts = explode('/', BASEURL);
 			$url_elements_tmp = explode('/',$request_url);
             $url_elements = array();
 
             for ($i=0; $i<count($url_elements_tmp); $i++) {
-                if (!in_array($url_elements_tmp[$i], $base_url)) {
+                if (!in_array($url_elements_tmp[$i], $base_url_parts)) {
                     $url_elements[] = $url_elements_tmp[$i];
                 }
             }
 
 			$param_index = 1;
 
-            if(in_array($url_elements[$param_index], array('css', 'img'))) {
+            if(in_array($url_elements[0], array('css', 'img'))) {
                 // check for static file
                 $ltrimmed_request_url = ltrim(implode('/', $url_elements), '/');
                 $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
