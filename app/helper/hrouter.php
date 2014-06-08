@@ -64,7 +64,7 @@ class hRouter {
                         //TODO: better header!
                         //find kiraa's hack for that!!1!
                         //echo DOCUMENT_PATH . $ltrimmed_request_url;
-                        echo file_get_contents(BASEDIR . $ltrimmed_request_url);
+                        echo file_get_contents(DOCUMENT_PATH . $ltrimmed_request_url);
                         die();
                     }
                 }
