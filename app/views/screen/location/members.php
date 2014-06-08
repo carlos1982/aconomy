@@ -8,14 +8,16 @@ $location = hStorage::getVar('Location');
 $members = $location->mMemberships;
 ?>
 
-<h1><?=$location->dName?></h1>
+<h1><a href="<?=_Link('location','show',$location->getEncryptId())?>"><?=$location->dName?></a> / <?=__('Members')?></h1>
 
 <div class="tencol">
     <div class="wrapper">
 <?php
     foreach($members->mItems as $member) {
         $str = '<div class="fivecol userlist_item">';
-        $str .= $member->dUser->showValue();
+
+        $str .= '<a href="#">';
+        $str .= $member->dUser->showValue().'</a>';
         $str .= '</div>';
         echo $str;
     }

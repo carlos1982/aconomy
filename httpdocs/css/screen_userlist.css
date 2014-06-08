@@ -1,6 +1,9 @@
 .userlist_item {
-
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     padding: 1em 0;
+}
 
+.userlist_item .user_thumb{
+    float: left;
+    margin-right: 1em;
 }
