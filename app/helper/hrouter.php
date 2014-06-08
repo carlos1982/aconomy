@@ -40,12 +40,17 @@ class hRouter {
 		if (self::$mAction != 'redirect') {	// Wenn in der Session Redirect gesetzt wurde, dann mach gar nichts
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
-            $request_url = str_replace(BASEURL, '', $request_url);
-            echo BASEURL . '-';
-            echo $request_url;
-            die();
-			$url_elements = explode('/',$request_url);
-						
+
+            $base_url = explode('/', BASEURL);
+			$url_elements_tmp = explode('/',$request_url);
+            $url_elements = array();
+
+            for ($i=0; $i<count($url_elements_tmp); $i++) {
+                if (!in_array($url_elements_tmp[$i], $base_url)) {
+                    $url_elements[] = $url_elements_tmp[$i];
+                }
+            }
+
 			$param_index = 1;
 			
 			if(in_array($url_elements[$param_index],array('screen','file','ajax'))) {

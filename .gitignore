@@ -4,3 +4,4 @@
 config.php
 /app/helper/hmysql.php
 ._.*
+.idea
