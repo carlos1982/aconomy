@@ -1,7 +1,7 @@
 #StudentsLoginFormContainer {
 	padding-left: 30px;
 	padding-bottom: 20px;
-	background: url('img/fieldset_bg.png') bottom repeat-x #fff;
+	background: url('/img/fieldset_bg.png') bottom repeat-x #fff;
 	
 	border: 1px solid #ccc;
 	

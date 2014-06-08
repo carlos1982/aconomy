@@ -9,7 +9,7 @@
 .progress span{
 	display: block;
 	padding: 4px 4px;
-	background-image: url('img/progress.gif');
+	background-image: url('/img/progress.gif');
 	background-color: #5FB841;
 	width: 0%;
 	color: #fff;

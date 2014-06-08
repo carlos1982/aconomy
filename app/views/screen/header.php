@@ -20,7 +20,6 @@ foreach ($menu_items as $item_label => $menu_Link) {
   <head>
     <meta charset="utf-8" />
     <title><?=__(hMeta::getTitle())?></title>
-    <base href="<?= PROTOKOLL . BASEURL ?>" />
     <?php
     echo hCss::getCssLink();
     ?>
