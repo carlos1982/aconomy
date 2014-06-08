@@ -41,7 +41,9 @@ class hRouter {
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
             $request_url = str_replace(BASEURL, '', $request_url);
-            
+            echo BASEURL . '-';
+            echo $request_url;
+            die();
 			$url_elements = explode('/',$request_url);
 						
 			$param_index = 1;
