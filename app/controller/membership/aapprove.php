@@ -37,6 +37,7 @@ if($membership->LoadByToken()) {
 
                 if ($membership->Update()) {
                     if ($location->dCountMembers->getValue() < 2) {
+                        $location->dCountMembers->IncreaseValue();
                         hSuccess::Add(__('Die Mitgliedschaft ist nun bestätigt.'));
                     }
                     else {
@@ -47,7 +48,7 @@ if($membership->LoadByToken()) {
                     hError::Add(__('Bei Speichern kam es zu einem Fehler'));
                 }
 
-                $location->dCountMembers->IncreaseValue();
+
                 if(!$location->Update()) {
                     hError::Add(__('Error: 1324. Bitte an Webmaster wenden.'));
                 }
