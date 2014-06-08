@@ -15,7 +15,7 @@ define('CSS_PATH', DOCUMENT_PATH.'css/');
 
 /** URLs */
 define('BASEURL', 'url.de');  // BASE URL should NEVER EVER have the protocol in it?! http://
-define('CSS_URL', BASEURL.'/css/');
+define('CSS_URL', BASEURL.'css/');
 
 /** Database 
  * see app/helper/hmysql(_example) */
