@@ -42,12 +42,13 @@ class hRouter {
 			$request_url = $_SERVER['REQUEST_URI'];
 
             // check for static file
+            $ltrimmed_request_url = ltrim($request_url, '/');
             $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
             foreach($staticFileExtensions as $fileExt) {
                 //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
                 if ( hFunctions::str_ends_with($request_url, $fileExt)) {
                     //TODO: better header!
-                    //find kiraa's hack
+                    //find kiraa's hack for that!!1!
                     echo BASEDIR . $request_url;
                     //echo file_get_contents(BASEDIR . $request_url);
                     die();
