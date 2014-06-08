@@ -18,7 +18,7 @@ define('BASEURL', 'http://url.de');
 define('CSS_URL', BASEURL.'/css/');
 
 /** Database 
- * Siehe hmysql() */ 
+ * see app/helper/hmysql(_example) */
 
 /**
  * Admin-Rollen
