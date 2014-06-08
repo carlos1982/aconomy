@@ -1,4 +1,11 @@
 <?php
+
+/*
+ *** IMPORTANT ***
+ * CHANGE THE SALTS in
+ * app/helper/hsalt.php
+ */
+
 /** PATHS */
 define('BASEDIR', '/var/www/vhosts/aconomy/app/');
 define('DOCUMENT_PATH', '/var/www/vhosts/aconomy/httpdocs/');
@@ -14,11 +21,11 @@ define('CSS_PATH', DOCUMENT_PATH.'css/');
 
 
 /** URLs */
-define('BASEURL', 'http://url.de');
-define('CSS_URL', BASEURL.'/css/');
+define('BASEURL', 'url.de');  // BASE URL should NEVER EVER have the protocol in it?! http://
+define('CSS_URL', BASEURL.'css/');
 
 /** Database 
- * Siehe hmysql() */ 
+ * see app/helper/hmysql(_example) */
 
 /**
  * Admin-Rollen

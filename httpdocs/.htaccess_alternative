@@ -1,0 +1,13 @@
+#php_value upload_max_filesize 18388608
+#php_value memory_limit 256M
+#php_value max_input_time 60
+
+# handle static files via engine/index.php
+# IMPORTANT if you are using a sub-path instead of the root of an domain/sub-domain
+# sample: myPage.example.com/aconomy
+RewriteEngine On
+# under some circumsatnces (like sub-dir) this will not work
+#RewriteBase /
+# maybe it should be handled by index.php for sub-path reasons
+#RewriteRule !((css|js|jpg|gif|png|ico|zip|swf)$) index.php
+RewriteRule . index.php
