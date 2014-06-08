@@ -47,7 +47,8 @@ class hRouter {
                 if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === 0 && file_exists(BASEDIR . $request_url)) {
                     //TODO: better header!
                     //find kiraa's hack
-                    echo file_get_contents(BASEDIR . $request_url);
+                    echo BASEDIR . $request_url;
+                    //echo file_get_contents(BASEDIR . $request_url);
                     die();
                 }
             }
