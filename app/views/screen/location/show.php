@@ -24,11 +24,17 @@ if (!_isO($location, 'oLocation')) {
 <div class="threecol">
 
     <?php
-       if ($location->UserIsMember()){
-           if ($location->UserIsApprovedMember()) {
-               echo 'Du bist Mitglied dieser Gruppe';
-               // @todo Move to Class
+       if ($location->UserIsMember() || hSession::getAdminrole() == SUPERADMIN){
+           if ($location->UserIsApprovedMember() || hSession::getAdminrole() == SUPERADMIN) {
 
+               echo '<a href="'._Link('location', 'members' , $location->getToken()).'">'.__('Member anzeigen').'</a>';
+
+               if (!$location->UserIsMember()) {
+                   echo '<p><a href="'._Link('membership','create',$location->getToken()).'" class="btn request-membership-button">'.__('Gruppe beitreten').'</a></p>';
+               }
+
+
+               // @todo Move to Class
                $unapproved_members = '';
                $full_members = '';
 
@@ -42,9 +48,6 @@ if (!_isO($location, 'oLocation')) {
                    $show_link = _Link('user','show',$user->getEncryptID());
                    if (hSession::getAdminrole() == SUPERADMIN) {
                         $remove_link = ' | <a href="'._Link('membership','remove', $member->getEncryptID()).'">'.__('Löschen').'</a>';
-                   }
-                   else {
-                       echo hSession::getAdminroleString();
                    }
 
                    if ($member->dApproved->getValue() == 1) {

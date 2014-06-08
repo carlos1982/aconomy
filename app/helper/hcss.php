@@ -18,7 +18,8 @@ class hCss {
 							'screen_buttons' => 1,
 							'screen_ajax' => 1,
 							'screen_ids' => 1,
-							'screen_sidebar' => 1
+							'screen_sidebar' => 1,
+                            'screen_userlist' => 1
 					)
 			);
 		}

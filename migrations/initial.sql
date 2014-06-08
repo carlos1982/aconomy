@@ -13,6 +13,7 @@
 
 -- --------------------------------------------------------
 
+
 --
 -- Tabellenstruktur für Tabelle `Locations`
 --
@@ -30,11 +31,12 @@ CREATE TABLE IF NOT EXISTS `Locations` (
   `Website` varchar(80) NOT NULL,
   `Description` text NOT NULL,
   `Coordinates` varchar(100) NOT NULL,
+  `CountMembers` int(11) NOT NULL DEFAULT '0',
   `Banner` varchar(100) NOT NULL,
   `Logo` varchar(100) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `EncryptID` (`EncryptID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
