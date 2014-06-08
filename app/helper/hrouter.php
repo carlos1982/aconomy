@@ -68,8 +68,8 @@ class hRouter {
                                               '.zip'=>'application/zip',
                                               '.swf'=>'application/x-shockwave-flash');
                 foreach($staticFileExtensions as $fileExt => $contentType) {
-                    //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
-                    if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
+                    if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(DOCUMENT_PATH . $ltrimmed_request_url) ) {
+                    //if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
                         //TODO: better header!
                         //find kiraa's hack for that!!1!
                         //echo DOCUMENT_PATH . $ltrimmed_request_url;
