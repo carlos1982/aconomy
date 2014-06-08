@@ -109,5 +109,12 @@ function _isO($pObject = null, $pClassname = '') {
     return ($pObject != null && $pClassname != '' && is_object($pObject) && get_class($pObject) == $pClassname);
 }
 
+function str_starts_with($haystack, $needle) {
+    return strpos($haystack, $needle) === 0;
+}
+
+function str_ends_with($haystack, $needle) {
+    return strpos($haystack, $needle) + strlen($needle) === strlen($haystack);
+}
 
 ?>

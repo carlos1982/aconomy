@@ -1,4 +1,11 @@
 <?php
+
+/*
+ *** IMPORTANT ***
+ * CHANGE THE SALTS in
+ * app/helper/hsalt.php
+ */
+
 /** PATHS */
 define('BASEDIR', '/var/www/vhosts/aconomy/app/');
 define('DOCUMENT_PATH', '/var/www/vhosts/aconomy/httpdocs/');
