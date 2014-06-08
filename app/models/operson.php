@@ -39,7 +39,7 @@ class oPerson extends oStandard  {
 		$this->dCountry = new tCountry(array('Fieldname' => 'Country', 'Label' => 'Land', 'AllowedValues' => array('de' => 'Deutschland', 'fr' => 'Frankreich', 'gr' => 'Griechenland'), 'Required' => false));
 		$this->dEmail = new tEmail(array('Fieldname' => 'Email', 'Label' => 'E-Mail'));
 		$this->dPassword = new tPassword(array('Fieldname' => 'Password', 'Label' => 'Password', 'Salt' => $this->mDBTable));
-		$this->dAdminrole = new tSelect(array('Fieldname' => 'Adminrole', 'setEditable' => false));
+		$this->dAdminrole = new tSelect(array('Fieldname' => 'Adminrole', 'Editable' => false));
         $this->dResetPasswordToken = new tString(array('Fieldname' => 'ResetPasswordToken', 'Label' => 'ResetToken', 'Required' => false, 'Editable' => false));;
     }
     

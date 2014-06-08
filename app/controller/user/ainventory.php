@@ -9,7 +9,7 @@
  */
 
 $item_list = new lItems();
-$item_list->AddCondition('UserID', hSession::getUserId());
+$item_list->AddCondition('User', hSession::getUserId());
 if ($item_list->LoadFromDB()) {
     hStorage::addVar('ItemListe',$item_list);
 }

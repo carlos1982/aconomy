@@ -5,7 +5,7 @@ if (hSession::IsLoggedIn()) {
 	hDebug::Add(__('Rolle').': '.__('Studierender'));
 	$menu_items['Startseite'] = _Link('user','index');
 	$menu_items['Locations'] = _Link('location','list');
-    $menu_items['Inventory'] = _Link('user','inventory');
+    $menu_items['Mein Inventar'] = _Link('user','inventory');
 	$menu_items['Logout'] = _Link('user','logout');
 }
 
@@ -33,8 +33,10 @@ foreach ($menu_items as $item_label => $menu_Link) {
   </head>
 <body>
   <header>
-    <h1><span id="project_url">aconomy.org</span><span id="module_path">/share</span></h1>
-    <h2><?=__(CLAIM)?></h2>
+    <a href="<?=_Link('user','index')?>">
+        <h1><span id="project_url">aconomy.org</span><span id="module_path">/share</span></h1>
+        <h2><?=__(CLAIM)?></h2>
+    </a>
   </header>
 
 

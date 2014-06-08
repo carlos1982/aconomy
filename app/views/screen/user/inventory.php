@@ -12,7 +12,7 @@ $item_list = hStorage::getVar('ItemListe');
 <h1><?=__('Meine Gegenstände')?></h1>
 
 <div class="eightcol">
-
+<?=$item_list->showEditList()?>
 </div>
 
 <div class="twocol">

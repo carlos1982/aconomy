@@ -27,7 +27,7 @@ class oMembership extends oStandard  {
             'Fieldname' => 'User',
             'Label' => 'Benutzer',
             'ForeignTable' => 'Users',
-            'ForeignFields' => array('Forename', 'Surname')
+            'ForeignFields' => array('Nickname')
         ));
         $this->dLocation = new tForeignKey(	array(
             'Fieldname' => 'Location',

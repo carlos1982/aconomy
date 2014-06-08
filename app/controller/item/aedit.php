@@ -5,7 +5,10 @@
 
 $item = new oItem();
 $item->AddCondition('EncryptID',hRouter::getToken());
-if ($location->LoadFromDB()) {
+if (hSession::getAdminrole() < SUPERADMIN) {
+    $item->AddCondition('User', hSession::getUserId());
+}
+if ($item->LoadFromDB()) {
     // Supi
     if(_p('editmode') == 'save') {
 
