@@ -63,7 +63,7 @@ class hRouter {
                     if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
                         //TODO: better header!
                         //find kiraa's hack for that!!1!
-                        echo BASEDIR . $ltrimmed_request_url;
+                        echo DOCUMENT_PATH . $ltrimmed_request_url;
                         //echo file_get_contents(BASEDIR . $ltrimmed_request_url);
                         die();
                     }
