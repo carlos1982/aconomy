@@ -46,10 +46,10 @@ class hRouter {
             $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
             foreach($staticFileExtensions as $fileExt) {
                 //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
-                if ( hFunctions::str_ends_with($request_url, $fileExt)) {
+                if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
                     //TODO: better header!
                     //find kiraa's hack for that!!1!
-                    echo BASEDIR . $request_url;
+                    echo BASEDIR . $ltrimmed_request_url;
                     //echo file_get_contents(BASEDIR . $request_url);
                     die();
                 }
