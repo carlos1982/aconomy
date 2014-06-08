@@ -41,6 +41,15 @@ class hRouter {
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
 
+            // check for static file
+            $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
+            foreach($staticFileExtensions as $fileExt) {
+                if ( hFunctions::str_ends_with($request_url, $fileExt) ) {
+                    self::Redirect( $request_url );
+                }
+            }
+
+
             $base_url = explode('/', BASEURL);
 			$url_elements_tmp = explode('/',$request_url);
             $url_elements = array();

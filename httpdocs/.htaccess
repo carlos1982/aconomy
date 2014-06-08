@@ -7,4 +7,4 @@ RewriteEngine On
 #RewriteBase /
 # maybe it should be handled by index.php for sub-path reasons
 #RewriteRule !((css|js|jpg|gif|png|ico|zip|swf)$) index.php
-RewriteRule index.php
+RewriteRule . index.php
