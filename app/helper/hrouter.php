@@ -57,13 +57,26 @@ class hRouter {
             if(in_array($url_elements[0], array('css', 'img'))) {
                 // check for static file
                 $ltrimmed_request_url = ltrim(implode('/', $url_elements), '/');
-                $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
-                foreach($staticFileExtensions as $fileExt) {
+
+                //http://www.freeformatter.com/mime-types-list.html
+                $staticFileExtensions = array('.css'=>'text/css',
+                                              '.js'=>'application/javascript',
+                                              '.jpg'=>'image/jpeg',
+                                              '.gif'=>'image/gif',
+                                              '.png'=>'image/png',
+                                              '.ico'=>'image/x-icon',
+                                              '.zip'=>'application/zip',
+                                              '.swf'=>'application/x-shockwave-flash');
+                foreach($staticFileExtensions as $fileExt => $contentType) {
                     //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
                     if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
                         //TODO: better header!
                         //find kiraa's hack for that!!1!
                         //echo DOCUMENT_PATH . $ltrimmed_request_url;
+                        if ($contentType != '') {
+                            header('Content-type: '. $contentType  .';');
+                        }
+
                         echo file_get_contents(DOCUMENT_PATH . $ltrimmed_request_url);
                         die();
                     }
