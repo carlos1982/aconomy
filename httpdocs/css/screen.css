@@ -14,7 +14,7 @@ body {
 
 header{
 	
-	background: url('/img/aconomy.png') no-repeat;
+	background: url('img/aconomy.png') no-repeat;
 	background-size: auto 60%;
 	height: 65px;
 	margin: 0;
@@ -27,7 +27,6 @@ header h1 {
 
 header h2{
 	margin: 0;
-	padding: 0 ;
 	display: block;
 	overflow: hidden;
 	margin-top: 10px;

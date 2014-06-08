@@ -46,7 +46,7 @@ button[type="submit"]:hover,.createbutton:hover {
 
 
 fieldset {
-	background: url('/img/fieldset_bg.png') repeat-x bottom;
+	background: url('img/fieldset_bg.png') repeat-x bottom;
 	margin-bottom: 20px;
 }
 

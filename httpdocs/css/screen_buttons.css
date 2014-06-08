@@ -41,19 +41,19 @@
 }
 
 .createlink span {
-	background-image: url('/img/create_green_icon.png');
+	background-image: url('img/create_green_icon.png');
 }
 
 .editlink span {
-	background-image: url('/img/edit_icon.png');
+	background-image: url('img/edit_icon.png');
 }
 
 .showlink span{
-	background-image: url('/img/show_icon.png');
+	background-image: url('img/show_icon.png');
 }
 
 .deletelink span {
-	background-image: url('/img/delete_icon.png');
+	background-image: url('img/delete_icon.png');
 }
 
 .createlink:hover,.editlink:hover,.showlink:hover,.deletelink:hover {
