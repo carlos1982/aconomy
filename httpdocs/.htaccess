@@ -3,5 +3,8 @@
 #php_value max_input_time 60
 
 RewriteEngine On
-RewriteBase /
-RewriteRule !((css|js|jpg|gif|png|ico|zip|swf)$) index.php
+# under some circumsatnces (like sub-dir) this will not work
+#RewriteBase /
+# maybe it should be handled by index.php for sub-path reasons
+#RewriteRule !((css|js|jpg|gif|png|ico|zip|swf)$) index.php
+RewriteRule index.php
