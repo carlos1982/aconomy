@@ -41,21 +41,6 @@ class hRouter {
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
 
-            // check for static file
-            $ltrimmed_request_url = ltrim($request_url, '/');
-            $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
-            foreach($staticFileExtensions as $fileExt) {
-                //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
-                if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
-                    //TODO: better header!
-                    //find kiraa's hack for that!!1!
-                    echo BASEDIR . $ltrimmed_request_url;
-                    //echo file_get_contents(BASEDIR . $ltrimmed_request_url);
-                    die();
-                }
-            }
-
-
             $base_url = explode('/', BASEURL);
 			$url_elements_tmp = explode('/',$request_url);
             $url_elements = array();
@@ -67,7 +52,23 @@ class hRouter {
             }
 
 			$param_index = 1;
-			
+
+            if(in_array($url_elements[$param_index], array('css', 'img'))) {
+                // check for static file
+                $ltrimmed_request_url = ltrim(implode('/', $url_elements), '/');
+                $staticFileExtensions = array('.css','.js','.jpg','.gif','.png','.ico','.zip','.swf');
+                foreach($staticFileExtensions as $fileExt) {
+                    //if ( hFunctions::str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(BASEDIR . $request_url)) {
+                    if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
+                        //TODO: better header!
+                        //find kiraa's hack for that!!1!
+                        echo BASEDIR . $ltrimmed_request_url;
+                        //echo file_get_contents(BASEDIR . $ltrimmed_request_url);
+                        die();
+                    }
+                }
+            }
+
 			if(in_array($url_elements[$param_index],array('screen','file','ajax'))) {
 				self::$mFormat = $url_elements[$param_index];
 				$param_index++;
