@@ -19,13 +19,14 @@ class oLocation extends oStandard  {
 	var $dWebsite = '';
 	var $dDescription = '';
 	var $dCoordinates = '';
+    var $dCountMembers = 0;
 	var $dBanner = '';
 	var $dLogo = '';
 
     var $mMemberships = null;
 	
 	public function __construct() {
-        $this->mListFields = array('dName', 'dStreet', 'dHousenumber', 'dCity', 'dWebsite');
+        $this->mListFields = array('dName', 'dCountMembers', 'dStreet', 'dHousenumber', 'dCity', 'dWebsite');
 		$this->Init();
     }
 
@@ -49,8 +50,13 @@ class oLocation extends oStandard  {
 										)
 		);
 		$this->dCoordinates = new tString(array('Fieldname' => 'Coordinates', 'Label' => 'Koordinaten', 'Required' => false));
-		
-		$this->dBanner = new tFile(	array(  'Fieldname' => 'Banner',
+
+        $this->dCountMembers = new tInteger(array(
+            'Fieldname' => 'CountMembers',
+            'Editable' => false,
+        ));
+
+        $this->dBanner = new tFile(	array(  'Fieldname' => 'Banner',
 												'Label' => 'Banner hochladen',
 												'Required' => false,
 												'Owner' => &$this

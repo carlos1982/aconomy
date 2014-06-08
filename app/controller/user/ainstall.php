@@ -11,8 +11,7 @@ if($user->LoadFromDB()){
 	hRouter::NoPermission();
 }
 elseif($user->LoadFromPost()){
-	$user->dAdminrole->setAllowedValues(array(SUPERADMIN => 'AdministratorIn'));
-	$user->dAdminrole->setValue(SUPERADMIN);
+	$user->dAdminrole->setValue(SUPERADMIN, true);
 	$user->dConfirmed->setValue(1);
 	if ($user->Insert()) {
 		hSuccess::Add('Admin erfolgreich gespeichert.');

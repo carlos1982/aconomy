@@ -9,6 +9,7 @@ $location = new oLocation();
 if($_POST['editmode'] == 'save') {
 	
 	$location->LoadFromPost();
+    $location->dCountMembers->setValue(1);
 
 	if ($location->Insert()) {
 

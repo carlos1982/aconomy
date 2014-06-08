@@ -29,18 +29,34 @@ if (!_isO($location, 'oLocation')) {
                echo 'Du bist Mitglied dieser Gruppe';
                // @todo Move to Class
 
-               $approved_members = '';
+               $unapproved_members = '';
                $full_members = '';
+
+               $remove_link = '';
 
                foreach ($location->mMemberships->mItems as $member) {
                    $user = new oUser();
                    $user->AddCondition('id',$member->dUser->getValue());
                    $user->LoadFromDB();
-                   if ($member->dApproved->getValue() == 1) {
-                       $full_members .= '<li><a href="'._Link('user','show',$user->getEncryptID()).'">'.$member->dUser->showValue().'</a></li>';
+
+                   $show_link = _Link('user','show',$user->getEncryptID());
+                   if (hSession::getAdminrole() == SUPERADMIN) {
+                        $remove_link = ' | <a href="'._Link('membership','remove', $member->getEncryptID()).'">'.__('Löschen').'</a>';
                    }
                    else {
-                       $approved_members .= '<li><a href="'._Link('user','approve',$member->getEncryptID()).'">'.$member->dUser->showValue().'</a></li>';
+                       echo hSession::getAdminroleString();
+                   }
+
+                   if ($member->dApproved->getValue() == 1) {
+                       $full_members .= '<li><a href="'.$show_link.'">'.$member->dUser->showValue().'</a>';
+                       $full_members .= $remove_link;
+                       $full_members .= '</li>';
+                   }
+                   else {
+                       $unapproved_members .= '<li><a href="'.$show_link.'">'.$member->dUser->showValue().'</a>';
+                       $unapproved_members .= ' | <a href="'._Link('membership','approve',$member->getEncryptID()).'">'.__('Bestätigen').'</a>';
+                       $unapproved_members .= $remove_link;
+                       $unapproved_members .= '</li>';
                    }
                }
 
@@ -49,10 +65,10 @@ if (!_isO($location, 'oLocation')) {
                echo $full_members;
                echo '</ul>';
 
-               if ($approved_members != '') {
+               if ($unapproved_members != '') {
                    echo '<h2>'.__('Neue Mitgliedsanträge').'</h2>';
                    echo '<ul>';
-                   echo $approved_members;
+                   echo $unapproved_members;
                    echo '</ul>';
                }
 

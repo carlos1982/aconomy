@@ -1,6 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
+ * @abstract Wenn in einer Gruppe zwei Mitglieder vorhanden sind, dann
+ * müssen zwei Leute den Member bestätigen.
  * User: castro
  * Date: 08.06.14
  * Time: 01:49

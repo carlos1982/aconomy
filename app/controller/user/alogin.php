@@ -30,6 +30,8 @@ if( (_p('LoginEmail') != '') ||
     	hSession::setNickname($user->dNickname->getValue());
 		hSession::setForename($user->dForename->getValue());
 		hSession::setSurname($user->dSurname->getValue());
+
+        hSession::setAdminrole($user->dAdminrole->getValue());
     	
     	//hRouter::setView('index'); // Sind im Controller Student. Also student/index
     	hRouter::Redirect(_Link('user', 'index'));

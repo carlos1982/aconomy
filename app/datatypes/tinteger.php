@@ -151,5 +151,17 @@ class tInteger extends tDatatype implements iDataTypes {
         $this->mValue = '';
     }
 
+    public function IncreaseValue($pValue = 1) {
+        if (is_numeric($pValue) && is_integer(intval($pValue))) {
+            $this->mValue += $pValue;
+        }
+    }
+
+    public function DecreaseValue($pValue = 1) {
+        if (is_numeric($pValue) && is_integer(intval($pValue))) {
+            $this->mValue -= $pValue;
+        }
+    }
+
 }
 ?>

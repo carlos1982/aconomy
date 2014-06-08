@@ -2,9 +2,14 @@
 
 switch (hRouter::getAction()) {
 
-    default:	if (!hSession::IsLoggedIn()) {
-                    hRouter::NoPermission();
-                }
-                break;
+    case 'remove':  if (hSession::getAdminrole() < SUPERADMIN) {
+                        hRouter::NoPermission();
+                    }
+                    break;
+
+    default:	    if (!hSession::IsLoggedIn()) {
+                        hRouter::NoPermission();
+                    }
+                    break;
 
 }
