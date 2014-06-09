@@ -12,3 +12,10 @@ A PHP Application to share things in real life.
 * Now go to your browser and load yourlocation/user/install.
 * Create your Super-Admin-User.
 * You're done.
+
+
+## Dev-Notes ##
+
+White-Boards
+* http://img4.bilder-hochladen.tv/Uh1Vs2E9.jpg
+* http://img4.bilder-hochladen.tv/uzSeshnI.jpg
