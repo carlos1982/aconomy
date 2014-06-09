@@ -1,0 +1,16 @@
+/**
+*
+*   Listen mit Objecten, die man sich ausleihen kann.
+*
+*/
+.item_preview {
+    padding: 1em 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item_preview .item_name {
+    display: block;
+    color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+}

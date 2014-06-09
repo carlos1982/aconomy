@@ -17,7 +17,7 @@ class hTemplate {
             $path_parts = explode('/', $pArguments[0]);
             $last_path_part = $path_parts[count($path_parts) -1];
             $template_path = VIEWS_PATH.str_replace($last_path_part, 'templates/'.$last_path_part , $pArguments[0]).'.php';
-            static::$mFunctionList[$function_name] = create_function('$template_arguments = array()', 'include("'.$template_path.'");');
+            static::$mFunctionList[$function_name] = create_function('$template_arguments', 'include("'.$template_path.'");');
         }
         ob_start();
         call_user_func(static::$mFunctionList[$function_name], $function_arguments);

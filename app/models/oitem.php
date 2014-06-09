@@ -67,7 +67,6 @@ class oItem extends oStandard  {
         ));
 								
 	}
-	
 }
 
 	

@@ -87,8 +87,12 @@ if(false) $item_list = new lItems();
 if ($is_member && hStorage::VarExists('ItemList')) {
     $item_list = hStorage::getVar('ItemList');
 
-    foreach ($item_list as $item) {
-        echo hTemplate::Get('screen/item/preview', $item);
+    $anz_items = count($item_list->mItems);
+    if ($anz_items > 0) {
+        echo '<h2>'.__('Ausleihbare Gegenstände').'</h2>';
+        foreach ($item_list->mItems as $item) {
+            hTemplate::Render('screen/item/preview', $item);
+        }
     }
 
 }
