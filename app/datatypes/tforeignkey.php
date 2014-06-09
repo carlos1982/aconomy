@@ -108,15 +108,16 @@ class tForeignKey extends tSelect {
 		}
 		
 		$ret = '';
-		$f_object = $this->mForeignObject; 
+
 		if($this->LoadForeignObject($object_name)) {
-			foreach ($this->mForeignFields as $field_name) {
+            $f_object = $this->mForeignObject;
+            foreach ($this->mForeignFields as $field_name) {
 				$field_var_name = 'd'.$field_name;
-                if (is_object($this->mForeignObject->$field_var_name)) {
-                    $ret .= $this->mForeignObject->$field_var_name->showValue().' ';
+                if (is_object($f_object->$field_var_name)) {
+                    $ret .= $f_object->$field_var_name->showValue().' ';
                 }
                 else {
-                    _Debug('Objekt '.get_class($this->mForeignObject).' fehlt die Eigenschaft '.$field_var_name, false );
+                    _Debug('Objekt '.get_class($f_object).' fehlt die Eigenschaft '.$field_var_name, false );
                 }
 
 			} 
@@ -132,7 +133,11 @@ class tForeignKey extends tSelect {
 	 * Lädt das einen Datensatz eines verknüpften Objektes
 	 * 
 	 */
-	public function LoadForeignObject() {
+	public function LoadForeignObject($pForceReload = false) {
+
+        if (_isO($this->mForeignObject) && get_class($this->mForeignObject) == $object_name && !$pForceReload) {
+            return true;
+        }
 
         if (!is_numeric($this->mValue) || $this->mValue == 0) return false;
 

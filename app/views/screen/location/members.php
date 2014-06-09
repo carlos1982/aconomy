@@ -14,9 +14,15 @@ $members = $location->mMemberships;
     <div class="wrapper">
 <?php
     foreach($members->mItems as $member) {
+
+        $member->dUser->LoadForeignObject();
+        $user = $member->dUser->mForeignObject;
+
+
+
         $str = '<div class="fivecol userlist_item">';
 
-        $str .= '<a href="#">';
+        $str .= '<a href="'._Link('user','show',$user->getEncryptId()).'">';
         $str .= $member->dUser->showValue().'</a>';
         $str .= '</div>';
         echo $str;

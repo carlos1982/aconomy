@@ -19,7 +19,8 @@ class hCss {
 							'screen_ajax' => 1,
 							'screen_ids' => 1,
 							'screen_sidebar' => 1,
-                            'screen_userlist' => 1
+                            'screen_userlist' => 1,
+                            'screen_itemlist' => 1
 					)
 			);
 		}
