@@ -12,7 +12,7 @@ if ($user->LoadFromPost()) {
 	if	($user->Insert()) {
 		hSuccess::Add(__('Sie haben Sich erfolgreich registriert! Sie können sich nun einloggen!'));
 		//hRouter::setModel('student'); Überlüssig, da wir ja schon im Student-Controller sind.
-		hRouter::Redirect(_Link('user', 'index'));
+		hRouter::Redirect(_Link('user', 'login'));
 	}
 }
 
