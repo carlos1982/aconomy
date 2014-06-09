@@ -26,6 +26,9 @@ Pusteblume for supporting me during the hackathon and not beeing too mad on me.
 Bison for planing, contributing and helping me with the github stuff.
 The Chaosdorf, Toxo and Hinterhof for inspiring me.
 Tom, Jonny999 and Oerb for the discussings about the software and commons in general.
+
+I'm looking forward to see Nomasters an Oerbs implementations.
+
 Everybody i forgot.
 
 ## Dev-Notes ##
