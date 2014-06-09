@@ -17,8 +17,12 @@ class oStandard extends oMySql{
 	var $dEncryptID = '';
 	
 	protected $mListFields = '';
-	
-	
+
+
+    public function __construct() {
+        $this->Init();
+    }
+
 	/**
 	 * Init-Funktion. Hier werden alle Felder instanziert, die jedes Objekt haben sollte.
 	 * Abgeleitete Klassen sollten in der Init-Funktion parent::Init() aufrufen.
