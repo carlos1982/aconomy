@@ -1,6 +1,10 @@
 # aconomy #
 
-A PHP Application to share things in real life.
+A PHP application to share things in real life.
+
+Aconomy stands for [another/alternative/anarchist] economy. Instead of always buying something when we need something,
+we could share our ressources with our peer-groups. Everybody can constribute and everybody can profit from it:
+Material, social and envirometal.
 
 ## Install ##
 
@@ -13,6 +17,16 @@ A PHP Application to share things in real life.
 * Create your Super-Admin-User.
 * You're done.
 
+## Thanks ##
+
+I wan't to thank all persons that contributed and / or inspired me to build this website.
+The order is random.
+
+Pusteblume for supporting me during the hackathon and not beeing too mad on me.
+Bison for planing, contributing and helping me with the github stuff.
+The Chaosdorf, Toxo and Hinterhof for inspiring me.
+Tom, Jonny999 and Oerb for the discussings about the software and commons in general.
+Everybody i forgot.
 
 ## Dev-Notes ##
 

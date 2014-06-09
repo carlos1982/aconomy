@@ -5,6 +5,9 @@ if (!_isO($location, 'oLocation')) {
     echo 'Error';
     return;
 }
+
+$is_member = false;
+
 ?>
 
 <h1><?=$location->dName?></h1>
@@ -26,6 +29,10 @@ if (!_isO($location, 'oLocation')) {
     <?php
        if ($location->UserIsMember() || hSession::getAdminrole() == SUPERADMIN){
            if ($location->UserIsApprovedMember() || hSession::getAdminrole() == SUPERADMIN) {
+
+
+               $is_member = true;
+
 
                echo '<a href="'._Link('location', 'members' , $location->getToken()).'">'.__('Member anzeigen').'</a>';
 
@@ -87,6 +94,18 @@ if (!_isO($location, 'oLocation')) {
        }
     ?>
 </div>
+
+<?php
+// Items Ausgeben -----------------------------
+$item_list = hStorage::getVar();
+
+if(false) $item_list = new lItems();
+
+if ($is_member && hStorage::VarExists('ItemList')) {
+    $item_list = hStorage::getVar('ItemList');
+    echo $item_list->showList();
+}
+?>
 
 
 <?=hHtml::Clear()?>
