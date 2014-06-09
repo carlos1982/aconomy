@@ -27,3 +27,9 @@ Bison for planing, contributing and helping me with the github stuff.
 The Chaosdorf, Toxo and Hinterhof for inspiring me.
 Tom, Jonny999 and Oerb for the discussings about the software and commons in general.
 Everybody i forgot.
+
+## Dev-Notes ##
+
+White-Boards
+* http://img4.bilder-hochladen.tv/Uh1Vs2E9.jpg
+* http://img4.bilder-hochladen.tv/uzSeshnI.jpg

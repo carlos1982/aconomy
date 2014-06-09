@@ -89,7 +89,7 @@ class oLocation extends oStandard  {
         return false;
     }
 
-    public function UserIsApprovedMember() {
+    public function UserIsApprovedMember($pUserId = 0) {
         if ($this->LoadMemberships()) {
             return $this->mMemberships->UserIsApprovedMember($pUserId);
         }
