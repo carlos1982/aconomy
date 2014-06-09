@@ -87,13 +87,10 @@ if(false) $item_list = new lItems();
 if ($is_member && hStorage::VarExists('ItemList')) {
     $item_list = hStorage::getVar('ItemList');
 
-    /*
     foreach ($item_list as $item) {
-        hTemplate::Render('screen/item/preview');
+        echo hTemplate::Get('screen/item/preview', $item);
     }
-    */
 
-    echo $item_list->showList();
 }
 ?>
 
