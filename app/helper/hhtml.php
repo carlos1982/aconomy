@@ -42,7 +42,7 @@ class hHtml {
 	 * @param String $pClass	// CSS-Klasse
 	 * @param String $pID	// DOM-ID
 	 */
-	static function getLinkButtonTag($pLabel = '', $pLink = '', $pClass = 'buttonlink', $pID = '') {
+	static function getLinkButtonTag($pLabel = '', $pLink = '', $pClass = 'btn btn-default', $pID = '') {
 		if (($pLink == '') || ($pLabel == '')) {
 			hDebug::Add('Fehler: Link ohne Angaben');
 			return '';
@@ -61,7 +61,7 @@ class hHtml {
 	static function EditFormButton($pLabel = 'Speichern', $pEditMode = 'save') {
 		$dom_id = hRouter::getController().'_'.hRouter::getAction().'_button';
 		$ret = '<input type="hidden" id="editmode" name="editmode" value="'.$pEditMode.'" />';
-		$ret .= self::getButtonTag($pLabel,'submit','',$dom_id);
+		$ret .= self::getButtonTag($pLabel,'submit','btn btn-success',$dom_id);
 		$ret .= '</form>';
 		return $ret;
 	}

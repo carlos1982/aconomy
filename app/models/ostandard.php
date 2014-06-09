@@ -405,7 +405,8 @@ class oStandard extends oMySql{
 	
 	
 	function showEditListHeader($pShow = true, $pEdit = true, $pDelete = false) {
-		$ret = '<table class="editlist"><thead>';
+        //editlist
+		$ret = '<table class="table table-striped table-responsive"><thead>';
 		$ret .= '<tr>';
 		foreach ($this->showEditListVarNames() as $var_name) {
 			if(isset($this->$var_name)) {
@@ -462,7 +463,7 @@ class oStandard extends oMySql{
 		hDebug::Add('Controller-Name für Edit-Link:'.$controller_name);
 		if(file_exists(CONTROLLER_PATH.$controller_name.'/aedit.php')) {
 			$link = _Link($controller_name,'edit',$this->dEncryptID->getValue());
-			return hHtml::getLinkButtonTag(__('Bearbeiten'), $link, 'editlink');
+			return hHtml::getLinkButtonTag(__('Bearbeiten'), $link); //editlink
 		}
 		else {
 			return '';
@@ -479,13 +480,11 @@ class oStandard extends oMySql{
 		if(file_exists(CONTROLLER_PATH.$controller_name.'/ashow.php')) {
 			hDebug::Add('Controller-Name für Link: '.$controller_name);
 			$link = _Link($controller_name,'show',$this->dEncryptID->getValue());
-			return hHtml::getLinkButtonTag(__('Anzeigen'), $link, 'showlink');
+			return hHtml::getLinkButtonTag(__('Anzeigen'), $link); //Anzeigen
 		}
 		else {
 			return '';
 		}
-		
-		
 	}
 	
 	/**

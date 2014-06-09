@@ -63,13 +63,13 @@ class lStandard extends oMySql {
 		if (count($this->mItems) < 1) {
 			return __('Keine Einträge vorhanden!');
 		}
-		
+        $ret = '';
 		$ret .= $this->mItems[0]->showEditListHeader($pShow, $pEdit, $pDelete);
 		
 		foreach ($this->mItems as $item) {
-			$ret .= $item->showEditListItem($pShow, $pEdit, $pDelete);
+            $ret .= $item->showEditListItem($pShow, $pEdit, $pDelete);
 		}
-		$ret .= '</tbody></table>';
+		$ret .= '</tbody></table><div class="clear"></div>';
 		return $ret;
 	}
 	
@@ -80,7 +80,7 @@ class lStandard extends oMySql {
 		if (count($this->mItems) < 1) {
 			return __('Keine Einträge vorhanden!');
 		}
-		$ret = '<table class="editlist"><thead>';
+		$ret = '<table class="table table-striped"><thead>';
 		$ret .= $this->mItems[0]->showEditListHeader();
 		$ret .= '</thead><tbody>'; // @todo Prüfen ob es Sinnvoll ist an dieser Stelle Filter auszugeben.
 		foreach ($this->mItems as $item) {
