@@ -32,7 +32,7 @@ $login_password = hStorage::getVar('LoginPassword');
 	
 	<h2><?=__('Registrierung')?></h2>
 	
-	<p><?=__('Wenn Sie noch nicht im Abgabesystem angemeldet sind, dann können Sie sich <br />{#0}',array(hHtml::getLinkButtonTag(__('Hier Registrieren'),_Link('user','register'),'createbutton')))?>
+	<p><?=__('Wenn Sie noch nicht im Abgabesystem angemeldet sind, dann können Sie sich <br />{#0}',array(hHtml::getLinkButtonTag(__('Hier Registrieren'),_Link('user','register'),'btn btn-success')))?>
 	
 	</p>
 

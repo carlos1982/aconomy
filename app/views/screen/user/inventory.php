@@ -15,8 +15,8 @@ $item_list = hStorage::getVar('ItemListe');
 <?=$item_list->showEditList()?>
 </div>
 
-<div class="twocol">
-    <a href="<?=_Link('item','create')?>">Neuen Gegenstand anlegen</a>
+<div class="threeocol">
+    <a href="<?=_Link('item','create')?>" class="btn btn-success">Neuen Gegenstand anlegen</a>
 </div>
 
 <?=hHtml::Clear()?>

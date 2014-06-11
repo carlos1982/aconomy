@@ -13,10 +13,12 @@ $locations = hStorage::getVar('Locations');
 ?>
 <h1><?=__('Locations verwalten')?></h1>
 
-<p><?=hHtml::getLinkButtonTag(__('Neue Location anlegen'), _Link('location','create'), 'createlink');?></p>
 
-<?php 
-
+<div class="threecol">
+    <?=hHtml::getLinkButtonTag(__('Neue Location anlegen'), _Link('location','create'), 'btn btn-success');?>
+</div>
+<div class="eightcoll">
+<?php
 	// Listenausgabe
 	if (get_class($locations) != 'lLocations') {
 		echo __('Fehler');
@@ -26,3 +28,6 @@ $locations = hStorage::getVar('Locations');
 	}
 
 ?>
+</div>
+
+<div class="clear"></div>

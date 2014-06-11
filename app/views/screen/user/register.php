@@ -14,4 +14,4 @@ $user = hStorage::getVar('User');
 
 <?=hHtml::getFormTag(_Link('user','register'))?>
 <?=$user->Edit()?>
-<?=hHtml::getButtonTag(__('Registrieren'))?>
+<?=hHtml::getButtonTag(__('Registrieren'), 'submit', 'btn btn-success')?>
