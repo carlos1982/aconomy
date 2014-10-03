@@ -9,7 +9,7 @@ class lMemberships extends lStandard{
 	var $mDBTable = 'Memberships';
 	
 	function __construct() {
-		parent::Init();
+		parent::__construct();
 	}
 
     public function UserIsMember($pUserId = 0) {

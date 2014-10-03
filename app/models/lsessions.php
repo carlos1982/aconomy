@@ -9,7 +9,7 @@ class lSessions extends lStandard{
 	var $mDBTable = 'Sessions';
 	
 	function __construct() {
-		parent::Init();
+		parent::__construct();
 	}
 }
 

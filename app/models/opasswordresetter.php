@@ -10,13 +10,8 @@ class oPasswordResetter extends oStandard{
 	var $dResetPasswordToken;
 	
 	function __construct($pTableName = '') {
-		$this->Init();
-		$this->mDBTable = $pTableName;
-	}
-	
-	function Init() {
-		parent::Init();
-		
+		parent::__construct();
+		$this->mDBTable = $pTableName;		
 		$this->dResetPasswordToken = new tString(array('Fieldname' => 'ResetPasswordToken', 'Label' => 'Password Reset Token', 'Editable' => false));
 	}
 	

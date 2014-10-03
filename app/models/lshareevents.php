@@ -9,7 +9,7 @@ class lShareEvents extends lStandard{
 	var $mDBTable = 'ShareEvents';
 	
 	function __construct() {
-		parent::Init();
+		parent::__construct();
 	}
 }
 

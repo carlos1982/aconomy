@@ -11,7 +11,7 @@ if($user->LoadFromDB()){
 	hRouter::NoPermission();
 }
 elseif($user->LoadFromPost()){
-	$user->dAdminrole->setValue(SUPERADMIN, true);
+	$user->dAdminrole->setValue(SUPERADMIN);
 	$user->dConfirmed->setValue(1);
 	if ($user->Insert()) {
 		hSuccess::Add('Admin erfolgreich gespeichert.');
@@ -23,4 +23,3 @@ elseif($user->LoadFromPost()){
 }
 $user->dAdminrole->setEditable(false);
 hStorage::addVar('User',$user);
-?>

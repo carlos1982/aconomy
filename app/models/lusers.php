@@ -9,7 +9,7 @@ class lUsers extends lStandard{
 	var $mDBTable = 'Users';
 	
 	function __construct() {
-		parent::Init();
+		parent::__construct();
 	}
 }
 

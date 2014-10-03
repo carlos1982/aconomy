@@ -22,12 +22,7 @@ class oPerson extends oStandard  {
     var $dResetPasswordToken;
 	
 	public function __construct() {
-		$this->Init();
-    }
-
-    public function Init() {
-    	parent::Init();
-
+		parent::__construct();
     	$this->dNickname = new tString(array('Fieldname' => 'Nickname', 'Label' => 'Angezeigter Name', 'Required' => false));
 		$this->dForename = new tString(array('Fieldname' => 'Forename', 'Label' => 'Vorname'));
 		$this->dSurname = new tString(array('Fieldname' => 'Surname', 'Label' => 'Nachname'));
@@ -38,8 +33,16 @@ class oPerson extends oStandard  {
 		$this->dCity = new tString(array('Fieldname' => 'City', 'Label' => 'Stadt', 'Required' => false));
 		$this->dCountry = new tCountry(array('Fieldname' => 'Country', 'Label' => 'Land', 'AllowedValues' => array('de' => 'Deutschland', 'fr' => 'Frankreich', 'gr' => 'Griechenland'), 'Required' => false));
 		$this->dEmail = new tEmail(array('Fieldname' => 'Email', 'Label' => 'E-Mail'));
-		$this->dPassword = new tPassword(array('Fieldname' => 'Password', 'Label' => 'Password', 'Salt' => $this->mDBTable));
-		$this->dAdminrole = new tSelect(array('Fieldname' => 'Adminrole', 'Editable' => false));
+		$this->dPassword = new tPassword(array('Fieldname' => 'UserPassword', 'Label' => 'Password', 'Salt' => $this->mDBTable));
+		$this->dAdminrole = new tSelect(array('Fieldname' => 'Adminrole', 'Editable' => false, 'AllowedValues' => array(
+																												SUPERADMIN => 'Superadmin',
+																												REGIONALADMIN => 'Regionaladmin',
+																												VERIFIEDUSER => 'Verifizierter User',
+																												LOGGEDIN => 'Eingelogged',
+																												INACTIVE => 'Gesperrt',
+																												LOGGEDOUT => 'Ausgeloggt'
+																											)
+		));
         $this->dResetPasswordToken = new tString(array('Fieldname' => 'ResetPasswordToken', 'Label' => 'ResetToken', 'Required' => false, 'Editable' => false));;
     }
     

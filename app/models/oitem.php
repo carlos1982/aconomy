@@ -17,12 +17,10 @@ class oItem extends oStandard  {
     var $dCreated;
 	
 	public function __construct() {
+    	parent::__construct();
+		
         $this->mListFields = array('dName', 'dLendForward');
-		$this->Init();
-    }
 
-    public function Init() {
-    	parent::Init();
 
         $this->dUser = new tForeignKey(	array(
             'Fieldname' => 'User',

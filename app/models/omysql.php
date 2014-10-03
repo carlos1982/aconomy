@@ -94,10 +94,10 @@ class oMySql {
 			($pOperator == 'not like')
 		) {
 			if (is_numeric($pValue)) {
-				$condition_string = $pTable.'.'.$pFieldname.$pOperator.mysql_real_escape_string($pValue);
+				$condition_string = $pTable.'.'.$pFieldname.$pOperator.hMySQL::escapeString($pValue);
 			}
 			else {
-				$condition_string = $pTable.'.'.$pFieldname.$pOperator."'".mysql_real_escape_string($pValue)."'";
+				$condition_string = $pTable.'.'.$pFieldname.$pOperator."'".hMySQL::escapeString($pValue)."'";
 			}
 		}
 		elseif( // Numerische-Vergleiche

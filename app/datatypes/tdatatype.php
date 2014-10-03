@@ -104,10 +104,10 @@ class tDatatype {
 	    	$ret = $this->getFieldname().'='.$this->getValue().', ';
 	    }
 	    elseif (is_array($this->getValue())) {    	
-			$ret = $this->getFieldname()."='".mysql_real_escape_string(join(",",hParams::UnEscapeHtmlTags($this->getValue())))."', ";
+			$ret = $this->getFieldname()."='".hMySQL::escapeString(join(",",hParams::UnEscapeHtmlTags($this->getValue())))."', ";
 	    }
 	    else {
-	    	$ret = $this->getFieldname()."='".mysql_real_escape_string(hParams::UnEscapeHtmlTags($this->getValue()))."', ";
+	    	$ret = $this->getFieldname()."='".hMySQL::escapeString(hParams::UnEscapeHtmlTags($this->getValue()))."', ";
 		}
 		return $ret;
 	}

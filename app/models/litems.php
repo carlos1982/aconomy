@@ -9,7 +9,7 @@ class lItems extends lStandard {
 	var $mDBTable = 'Items';
 	
 	function __construct() {
-		parent::Init();
+		parent::__construct();
 	}
 }
 

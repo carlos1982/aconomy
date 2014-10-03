@@ -8,8 +8,8 @@ class lLocations extends lStandard{
 	var $mObjectClass = 'oLocation';
 	var $mDBTable = 'Locations';
 	
-	function lLocations() {
-		parent::Init();
+	function __construct() {
+		parent::__construct();
 	}
 }
 

@@ -20,8 +20,10 @@ foreach ($menu_items as $item_label => $menu_Link) {
   <head>
     <meta charset="utf-8" />
     <title><?=__(hMeta::getTitle())?></title>
-      <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Uncomment or paste the link to your own compiled version of bootstrap
+      <link href="" rel="stylesheet">
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    -->
     <?php
     echo hCss::getCssLink();
     ?>

@@ -20,14 +20,6 @@ class oStandard extends oMySql{
 
 
     public function __construct() {
-        $this->Init();
-    }
-
-	/**
-	 * Init-Funktion. Hier werden alle Felder instanziert, die jedes Objekt haben sollte.
-	 * Abgeleitete Klassen sollten in der Init-Funktion parent::Init() aufrufen.
-	 */
-	function Init() {
 		$this->ResetSQL();
 		$this->dID = new tInteger(array('Fieldname' => 'ID', 'Label' => 'ID', 'required' => 'true'));
 		$this->dEncryptID = new tString(array('Fieldname' => 'dEncryptID', 'Label' => 'Token', 'required' => 'true'));
@@ -111,10 +103,12 @@ class oStandard extends oMySql{
 		$request = $this->getSqlRequest();
 		if($request != '') {
 			$result = mysql_query($request);
+			//$result = hMySQL::Query($request);
 			hDebug::Add($request);
 			if (mysql_num_rows($result) == 1) {
+			//if (hMySQL::countRows() == 1) {
 				while ($data = mysql_fetch_assoc($result)) {
-					
+				//while ($data = hMySQL::$dbh->fetch(PDO::FETCH_ASSOC)) {	
 					foreach ($data as $field_name => $value) {
 						$field_name = 'd'.$field_name;
 						if (is_object($this->$field_name)) {		// Es können in der SQL-Anweisung Felder vorkommen, die nicht im Objekt enthalten sind.
@@ -127,9 +121,11 @@ class oStandard extends oMySql{
 				}
 				return true;
 			}
+			else {
+				//hDebug::Add('Anzahl Treffer:'. hMySQL::countRows());
+			}
 		}
 		return false;
-		
 	}
 	
 	/**
@@ -198,13 +194,14 @@ class oStandard extends oMySql{
 				$request .= "EncryptID='".hSalt::CreateUniqueID($this->mDBTable)."'";
 
 				$request = 'INSERT INTO '.$this->mDBTable.' SET '.$request;
-        		
-        		$result = mysql_query($request);
+				$result = mysql_query($request);
+        		//$result = hMySQL::Query($request);
         		
         	
         		if (!mysql_error()) {
-	        		hDebug::Add('Insert-Befehl funktioniert:'.$request);
+	        		hDebug::Add('Insert-Befehl funktioniert: '.$request);
 					$this->dID->setValue(mysql_insert_id());
+					//$this->dID->setValue(hMySQL::getInsertID());
 	        		// Dateien wirklich kopieren
 	        		foreach (get_object_vars($this) as $key => $value) {
 						if (substr($key, 0, 1) == 'd')  {
@@ -218,8 +215,8 @@ class oStandard extends oMySql{
     	    		return true;
         		}
         		else {
-        			hDebug::Add('Insert-Befehl schlug fehl:'.$request.mysql_error());
-        			if (strpos(mysql_error(),'uplicate') > 0) {
+        			hDebug::Add('Insert-Befehl schlug fehl: '.$request.'######'.mysql_error());
+        			if (strpos(mysql_error(),'duplicate') > 0) {
         				hError::Add('Es existiert bereits ein entsprechender Datensatz.');
         			}
         			return false;

@@ -26,13 +26,8 @@ class oLocation extends oStandard  {
     var $mMemberships = null;
 	
 	public function __construct() {
-        $this->mListFields = array('dName', 'dCountMembers', 'dStreet', 'dHousenumber', 'dCity', 'dWebsite');
-		$this->Init();
-    }
-
-    public function Init() {
-    	parent::Init();
-		
+        parent::__construct();
+		$this->mListFields = array('dName', 'dCountMembers', 'dStreet', 'dHousenumber', 'dCity', 'dWebsite');
 		$this->dName = new tString(		array(  'Fieldname' => 'Name',		
 												'Label' => 'Name'
 										)

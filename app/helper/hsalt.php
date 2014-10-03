@@ -11,9 +11,7 @@
 class hSalt {
 	
 	static $mSalts = array(
-		'Std' => 'dzbn4c6g4cv78cdbj9wecv93bcv6<jkqlqf7vuabercv6te3bc7sfn)=nmd(*sdkd',
-		'Students' => 'e8sd8366cvbink/Ncvnj)=nmd(*sdsd',
-		'Employees' => 'chcd7n9kx923knf8nsc7vnerfdjcmnwer84r4c8df'
+		'Std' => 'dzajhsdfgasdfasdasgbduzazsdgadsubdsbasabcskldte3bc7sfn)=nmd(*sdkd'
 	);
 	
 	static function Salt($pPassword, $pType = 'Std') {
@@ -35,8 +33,6 @@ class hSalt {
 	static function CreateUniqueID($tablename = 'Standard') {
 		return md5(uniqid('',true).time().$tablename);
 	}
-	
-	
 	
 	static function GenerateNewPassword() {
 		

@@ -26,7 +26,7 @@ class lStandard extends oMySql {
 	/**
 	 * Init()
 	 */
-	function Init() {
+	function __construct() {
 		$this->ResetSQL();
 		$this->mSqlOrder = $this->mDBTable.'.ID ASC';
 	}	

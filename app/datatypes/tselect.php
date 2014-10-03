@@ -16,7 +16,7 @@ class tSelect extends tDatatype implements iDataTypes {
 	var $mAllowedValues = array();
 	var $mMultiple = false;
 
-	function tSelect($pInitParams = array()) {
+	function __construct($pInitParams = array()) {
 		parent::__construct($pInitParams);
 		
 		if ((array_key_exists('AllowedValues', $pInitParams)) &&
@@ -224,7 +224,10 @@ class tSelect extends tDatatype implements iDataTypes {
 			return $parent_validation;
 		}
 		
-		if($this->mValue == '') return false;
+		if($this->mValue == '') {
+			hDebug::Add($this->getFieldname().': Es wurde kein Wert angegeben');
+			return false;
+		}
 
 		if (is_array($this->mValue)) {
 			if (count($this->mValue) > 0) {
@@ -233,6 +236,7 @@ class tSelect extends tDatatype implements iDataTypes {
 						// Alles OK
 					}
 					else {
+						hDebug::Add($this->getFieldname().': Wert "'.strip_tags($value).'" ist nicht erlaubt. Erlaubt sind: '. implode(', ',$this->mAllowedValues));
 						return false;
 					}
 				}

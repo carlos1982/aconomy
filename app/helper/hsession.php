@@ -24,11 +24,13 @@ class hSession{
 	static function Init() {
 		self::LogOut(); // Ist zeitgleich auch die Initialisierung der Werte
 		session_start();
-		$request = "Select * From Sessions Where ID='".mysql_real_escape_string(session_id())."'";
+		$request = "Select * From Sessions Where ID='".hMySQL::escapeString(session_id())."'";
 		$result = mysql_query($request);
 		hDebug::Add($request);
 		if (mysql_num_rows($result) == 1) {
+		//if (hMySQL::countRows($request) == 1) {
 			while ($data = mysql_fetch_array($result)) {
+			//foreach (hMySQL::fetchAssociated($pStatement) as $data) {
 				$session_values = unserialize($data['Data']);
 				$was_logged_in = 0;
 				
@@ -60,6 +62,7 @@ class hSession{
 			}	
 		}
 		else {
+			//hDebug::Add('Session wurde nicht erfolgreich geladen. SQL-Fehler');
 			hDebug::Add('Session wurde nicht erfolgreich geladen. '.mysql_error($result));
 		}
 		
@@ -75,12 +78,14 @@ class hSession{
 		$session_obj['Forename'] = self::$mForename;
 		$session_obj['Surname'] = self::$mSurname;
 		
-		$request = "REPLACE Sessions SET ID='".mysql_real_escape_string(session_id())."', Data='".serialize($session_obj)."', LastUpdate='".date('Y-m-d H:i:s')."'";
-		
-		$result = mysql_query($request);
+		$request = "REPLACE Sessions SET ID='".hMySQL::escapeString(session_id())."', Data='".serialize($session_obj)."', LastUpdate='".date('Y-m-d H:i:s')."'";
+
+		$result = mysql_query($request);		
+		//$result = hMySQL::Query($request);
 		
 		if (!$result) {
 			hDebug::Add('SQL-Error beim Speichern. '.mysql_error());
+			//hDebug::Add('SQL-Error beim Speichern.');
 		}
 		else {
 			hDebug::Add('Session erfolgreich gespeichert: '.$request);
@@ -150,9 +155,9 @@ class hSession{
 		switch (self::$mAdminrole) {
 			case SUPERADMIN:	$adminrole = __('Super AdministratorIn');
 								break;
-			case REGIONALADMIN:		$adminrole = __('Admin');
+			case REGIONALADMIN:	$adminrole = __('Admin');
 								break;
-			case VERIFIEDUSER:		$adminrole = __('Verifizierter User');
+			case VERIFIEDUSER:	$adminrole = __('Verifizierter User');
 								break;
 			case LOGGEDIN:		$adminrole = __('Eingeloggt');
 								break;

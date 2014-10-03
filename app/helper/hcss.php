@@ -43,13 +43,17 @@ class hCss {
 			
 			foreach (self::$mCssFiles[hRouter::getFormat()] as $css_file => $state) {
 				if ($state == 1) {
-					$file_name = CSS_PATH.$css_file.'.css';
-					if (file_exists($file_name)) {
-						hDebug::Add($css_file.' wurde ausgegeben!');
-						$return .= '<link rel="stylesheet" href="'.PROTOKOLL.CSS_URL.$css_file.'.css" type="text/css" />'."\n";
-					}
-					else {
-						hDebug::Add($file_name.' wurde nicht gefunden!');
+					if(substr($css_file, 0, 2) != '//') {
+						$file_name = CSS_PATH.$css_file.'.css';
+						if (file_exists($file_name)) {
+							hDebug::Add($css_file.' wurde ausgegeben!');
+							$return .= '<link rel="stylesheet" href="'.PROTOKOLL.CSS_URL.$css_file.'.css" type="text/css" />'."\n";
+						}
+						else {
+							hDebug::Add($file_name.' wurde nicht gefunden!');
+						}
+					} else {
+						$return .= '<link rel="stylesheet" href="'.$css_file.'.css" type="text/css" />'."\n";
 					}
 				}
 			}

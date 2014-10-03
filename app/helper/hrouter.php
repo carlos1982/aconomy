@@ -40,57 +40,17 @@ class hRouter {
 		if (self::$mAction != 'redirect') {	// Wenn in der Session Redirect gesetzt wurde, dann mach gar nichts
 		    
 			$request_url = $_SERVER['REQUEST_URI'];
-
-            // cut the subdir from request!
-            $base_url_parts = explode('/', BASEURL);
-			$url_elements_tmp = explode('/',$request_url);
-            $url_elements = array();
-
-            for ($i=0; $i<count($url_elements_tmp); $i++) {
-                if (!in_array($url_elements_tmp[$i], $base_url_parts)) {
-                    $url_elements[] = $url_elements_tmp[$i];
-                }
-            }
+			$url_elements = explode('/',$request_url);
 
 			$param_index = 1;
-
-            if(in_array($url_elements[0], array('css', 'img'))) {
-                // check for static file
-                $ltrimmed_request_url = ltrim(implode('/', $url_elements), '/');
-
-                //http://www.freeformatter.com/mime-types-list.html
-                $staticFileExtensions = array('.css'=>'text/css',
-                                              '.js'=>'application/javascript',
-                                              '.jpg'=>'image/jpeg',
-                                              '.gif'=>'image/gif',
-                                              '.png'=>'image/png',
-                                              '.ico'=>'image/x-icon',
-                                              '.zip'=>'application/zip',
-                                              '.swf'=>'application/x-shockwave-flash');
-                foreach($staticFileExtensions as $fileExt => $contentType) {
-                    if ( str_ends_with($request_url, $fileExt) && strpos($request_url, '..') === false && file_exists(DOCUMENT_PATH . $ltrimmed_request_url) ) {
-                    //if ( hFunctions::str_ends_with($ltrimmed_request_url, $fileExt)) {
-                        //TODO: better header!
-                        //find kiraa's hack for that!!1!
-                        //echo DOCUMENT_PATH . $ltrimmed_request_url;
-                        if ($contentType != '') {
-                            header('Content-type: '. $contentType  .';');
-                        }
-
-                        echo file_get_contents(DOCUMENT_PATH . $ltrimmed_request_url);
-                        die();
-                    }
-                }
-            }
-
+			
+			// format
 			if(in_array($url_elements[$param_index],array('screen','file','ajax'))) {
 				self::$mFormat = $url_elements[$param_index];
 				$param_index++;
 			}
-			else {
-				
-			}
-
+			
+			// Language
 			if(in_array($url_elements[$param_index],array('de'))) {
 				self::$mLanguage = $url_elements[$param_index];
 				$param_index++;
@@ -99,9 +59,8 @@ class hRouter {
 			// Controller
 			if ($url_elements[$param_index] != '') {
 				self::$mController = hParams::StripPathSymbols($url_elements[$param_index]);
-		    	
-			}
-			$param_index++;
+		    	$param_index++;	
+			} 
 			
 		    // Action
 			if ($url_elements[$param_index] != '') {

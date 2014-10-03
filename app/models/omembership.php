@@ -17,11 +17,7 @@ class oMembership extends oStandard  {
 	
 	public function __construct() {
         $this->mListFields = array('dUser', 'dLocation', 'dApproved');
-		$this->Init();
-    }
-
-    public function Init() {
-    	parent::Init();
+    	parent::__construct();
 
         $this->dUser = new tForeignKey(	array(
             'Fieldname' => 'User',

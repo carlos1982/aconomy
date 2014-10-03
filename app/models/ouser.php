@@ -9,18 +9,14 @@ class oUser extends oPerson  {
 
 	var $mDBTable = 'Users';	// Aus welcher Datenbank soll ein Datensatz geladen werden?
 	
-	public function oUser() {
-		$this->Init();
-		$this->mListFields = array('dNickname','dForename','dSurname');
-    }
-
-    public function Init() {
-    	parent::Init();
+	public function __construct() {
+    	parent::__construct();
 		$this->dConfirmed = new tSelect(		array('Fieldname' => 'Confirmed',
 													  'AllowedValues' => array('0' => 'Nicht bestätigt', '1' => 'Bestätigt'),
                                                       'Editable' => false
 												)
-								);
+		);
+		$this->mListFields = array('dNickname','dForename','dSurname');
 	}
 
 }
