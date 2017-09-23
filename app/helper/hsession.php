@@ -25,11 +25,11 @@ class hSession{
 		self::LogOut(); // Ist zeitgleich auch die Initialisierung der Werte
 		session_start();
 		$request = "Select * From Sessions Where ID='".hMySQL::escapeString(session_id())."'";
-		$result = mysql_query($request);
+		$result = hMySQL::Query($request);
 		hDebug::Add($request);
-		if (mysql_num_rows($result) == 1) {
+		if (hMySQL::countRows() == 1) {
 		//if (hMySQL::countRows($request) == 1) {
-			while ($data = mysql_fetch_array($result)) {
+			while ($data = mysqli_fetch_array($result)) {
 			//foreach (hMySQL::fetchAssociated($pStatement) as $data) {
 				$session_values = unserialize($data['Data']);
 				$was_logged_in = 0;
@@ -63,7 +63,7 @@ class hSession{
 		}
 		else {
 			//hDebug::Add('Session wurde nicht erfolgreich geladen. SQL-Fehler');
-			hDebug::Add('Session wurde nicht erfolgreich geladen. '.mysql_error($result));
+			hDebug::Add('Session wurde nicht erfolgreich geladen. '. hMySQL::getError() );
 		}
 		
 		
@@ -80,7 +80,7 @@ class hSession{
 		
 		$request = "REPLACE Sessions SET ID='".hMySQL::escapeString(session_id())."', Data='".serialize($session_obj)."', LastUpdate='".date('Y-m-d H:i:s')."'";
 
-		$result = mysql_query($request);		
+		$result = hMySQL::Query($request);		
 		//$result = hMySQL::Query($request);
 		
 		if (!$result) {

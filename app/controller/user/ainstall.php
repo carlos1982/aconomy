@@ -16,8 +16,7 @@ elseif($user->LoadFromPost()){
 	if ($user->Insert()) {
 		hSuccess::Add('Admin erfolgreich gespeichert.');
 		hRouter::Redirect(_Link('user'));
-	}
-	else {
+	} else {
 		hError::Add('AdministratorIn konnte nicht angelegt werden.');
 	}
 }

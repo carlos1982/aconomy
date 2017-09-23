@@ -56,7 +56,7 @@ class oItem extends oStandard  {
             'Required' => true,
             'AllowedValues' => array(
                 'true' => 'Kann weitergegeben werden',
-                'Slightly Used' => 'Nein, bitte nachher zurück an mich'
+                'false' => 'Nein, bitte nachher zurück an mich'
             )
         ));
         $this->dCreated = new tDateTime( array(

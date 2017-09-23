@@ -20,12 +20,12 @@ if( (_p('LoginEmail') != '') ||
     (_p('LoginPassword') != '')
   ) {
     $user->AddCondition('Email',$_POST['LoginEmail']);
-    $user->AddCondition('UserPassword', hSalt::Salt($_POST['LoginPassword'],$user->mDBTable));
+    $user->AddCondition('Password', hSalt::Salt($_POST['LoginPassword'],$user->mDBTable));
   
     //if (($student->LoadFromDB()) && ($student->Validate())) {
     if ($user->LoadFromDB()) {
     	hSuccess::Add('Erfolgreich eingeloggt!');
-    	
+        
     	hSession::setUserId($user->getID());
     	hSession::setNickname($user->dNickname->getValue());
 		hSession::setForename($user->dForename->getValue());

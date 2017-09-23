@@ -45,15 +45,17 @@ CREATE TABLE IF NOT EXISTS `Locations` (
 --
 
 CREATE TABLE IF NOT EXISTS `Memberships` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `EncryptID` varchar(60) NOT NULL,
   `User` int(11) NOT NULL DEFAULT '0',
   `Location` int(11) NOT NULL DEFAULT '0',
   `Approved` tinyint(4) NOT NULL COMMENT '0=falsch, 1=bestätigt',
   `Godfather` int(11) NOT NULL DEFAULT '0',
   `Godmother` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `EncryptID` (`EncryptID`),
   UNIQUE KEY `User` (`User`,`Location`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wer ist Mitglied in welcher Gruppe';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=1 COMMENT='Wer ist Mitglied in welcher Gruppe';
 
 -- --------------------------------------------------------
 

@@ -16,6 +16,8 @@
  * @version 0.1	Zunüchst werden nur GET-Parameter Controller und Action ausgelesen.
  * @author Carlos Cota Castro
  */
+date_default_timezone_set('Europe/Berlin');
+
 $zeitmessung = microtime();
 include_once('config.php');
 

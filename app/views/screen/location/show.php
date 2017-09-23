@@ -1,5 +1,5 @@
 <?php
-if (false) $location = new oLocation();
+
 $location = hStorage::getVar('Location');
 if (!_isO($location, 'oLocation')) {
     echo 'Error';
@@ -38,14 +38,14 @@ if ($location->UserIsMember() || hSession::getAdminrole() == SUPERADMIN){
 
             if ($member->dApproved->getValue() == 1) {
                 if ($i < 8) {
-                    $full_members .= '<li><a href="'.$show_link.'">'.$member->dUser->showValue().'</a>';
+                    $full_members .= '<li><a href="'.$show_link.'">'.$user->dNickname->getValue().'x</a>';
                     $full_members .= $remove_link;
                     $full_members .= '</li>';
                 }
                 $i++;
             }
             else {
-                $unapproved_members .= '<li><a href="'.$show_link.'">'.$member->dUser->showValue().'</a>';
+                $unapproved_members .= '<li><a href="'.$show_link.'">'.$user->dNickname->showValue().'</a>';
                 $unapproved_members .= ' | <a href="'._Link('membership','approve',$member->getEncryptID()).'">'.__('Bestätigen').'</a>';
                 $unapproved_members .= $remove_link;
                 $unapproved_members .= '</li>';

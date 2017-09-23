@@ -21,7 +21,7 @@ class oShareEvent extends oStandard  {
         $this->mListFields = array('dUser', 'dItem', 'dMessage', 'dMessageReturn', 'dStatus', 'dLendFrom', 'dLendTil');
 
         parent::__construct();
-        $this->dUser = new tForeignKey(array('Fieldname' => 'Requester', 'Label' => 'Anfrage von', 'Required' => true));
+        $this->dUser = new tForeignKey(array('Fieldname' => 'UserID', 'Label' => 'Anfrage von', 'Required' => true));
         $this->dItem = new tForeignKey(array('Fieldname' => 'Item', 'Label' => 'Gegenstand', 'Required' => true));
         $this->dMessage = new tString(array('Fieldname' => 'Anfrage', 'Label' => 'Anfragetext'));
         $this->dMessageReturn = new tString(array('Fieldname' => 'Antwort', 'Label' => 'Antworttext'));

@@ -110,7 +110,7 @@ class oMySql {
 				$condition_string = $pTable.'.'.$pFieldname.$pOperator.$pValue;
 			}
 			else {
-				$condition_string = $pTable.'.'.$pFieldname.$pOperator."'".mysql_real_escape_string($pValue)."'";
+				$condition_string = $pTable.'.'.$pFieldname.$pOperator."'".hMySQL::escapeString($pValue)."'";
 				hDebug::Add('Fehler1: Value is not Numeric');
 			}
 		}
@@ -118,7 +118,7 @@ class oMySql {
 			if (is_array($pValue)) {
 				$value_str = '';
 				foreach ($pValue as $in_value) {
-					$value_str .= "'".mysql_real_escape_string($in_value)."',"; 
+					$value_str .= "'".hMySQL::escapeString($in_value)."',"; 
 				}
 				$pValue = substr($value_str, 0, -1);	// Letztes Komma entfernen
 				$condition_string = $pTable.'.'.$pFieldname.' in ('.$pValue.')';
@@ -130,7 +130,7 @@ class oMySql {
 				foreach (explode($pValue) as $in_value) {
 					if (substr($pValue,0,1) == "'") $pValue = substr($pValue,1);
 					if (substr($pValue,-1) == "'") $pValue = substr($pValue,0,-1);
-					$value_str .= "'".mysql_real_escape_string($in_value)."',"; 
+					$value_str .= "'".hMySQL::escapeString($in_value)."',"; 
 				}
 				$pValue = substr($value_str, 0, -1);	// Letztes Komma entfernen
 				$condition_string = $pTable.'.'.$pFieldname.' in ('.$pValue.')';

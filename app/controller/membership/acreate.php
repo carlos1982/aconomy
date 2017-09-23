@@ -23,8 +23,8 @@ if ($location->LoadByToken()) {
         $membership->dUser->setValue(hSession::getUserId(), true);
         $membership->dLocation->setValue($location->getID(), true);
         $membership->dApproved->setValue(0);
-        $membership->dGodfather->setValue('', true);
-        $membership->dGodmother->setValue('', true);
+        $membership->dGodfather->setValue(0, true);
+        $membership->dGodmother->setValue(0, true);
         if ($membership->Insert()) {
             hSuccess::Add(__('Du musst nun auf die Freischaltung warten'));
             hRouter::Redirect(_Link('location', 'show', $location->getToken()));

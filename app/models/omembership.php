@@ -25,12 +25,12 @@ class oMembership extends oStandard  {
             'ForeignTable' => 'Users',
             'ForeignFields' => array('Nickname')
         ));
-        $this->dLocation = new tForeignKey(	array(
+        $this->dLocation = new tForeignKey([
             'Fieldname' => 'Location',
             'Label' => 'Location',
             'ForeignTable' => 'Locations',
-            'ForeignFields' => array('Name')
-        ));
+            'ForeignFields' => ['Name']
+        ]);
         $this->dApproved = new tSelect( array (
             'Fieldname' => 'Approved',
             'Editable' => true,

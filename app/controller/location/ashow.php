@@ -17,7 +17,6 @@ else { // Formal richtiger Aufruf
         foreach ($location->mMemberships->mItems as $member) {
             $member_ids[] = $member->dUser->getValue();
         }
-
         $item_list = new lItems();
         $item_list->AddCondition('User', $member_ids, 'in');
         if ($item_list->LoadFromDB()) {
